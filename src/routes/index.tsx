@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, type ReactNode } from "react";
+import { Apple } from "lucide-react";
+import { cn } from "@/lib/utils";
 import girl from "@/assets/girl.png.asset.json";
 import guy from "@/assets/guy.png.asset.json";
 import talk from "@/assets/talk.png.asset.json";
@@ -171,19 +173,50 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-10">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 text-sm text-muted-foreground">
-          <Logo />
-          <span>© 2026 Riadom</span>
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-5">
+          <AppStoreBadge size="lg" className="glow-violet" />
+          <div className="flex w-full items-center justify-between text-sm text-muted-foreground">
+            <Logo />
+            <span>© 2026 Riadom</span>
+          </div>
         </div>
       </footer>
     </div>
   );
 }
 
+const APP_STORE_URL = "https://apps.apple.com/app/riadom";
+
 function Logo() {
   return (
     <a href="#hero" className="flex items-center gap-2 font-display text-lg font-semibold text-foreground">
       <img src={sun.url} alt="" className="h-8 w-8 rounded-full object-cover" /> Riadom
+    </a>
+  );
+}
+
+function AppStoreBadge({ className, size = "md" }: { className?: string; size?: "sm" | "md" | "lg" }) {
+  const isSm = size === "sm";
+  const isLg = size === "lg";
+  return (
+    <a
+      href={APP_STORE_URL}
+      aria-label="Скачать в App Store"
+      className={cn(
+        "glass group inline-flex shrink-0 items-center rounded-2xl transition hover:scale-[1.03] hover:ring-1 hover:ring-primary/50",
+        isSm ? "gap-2 px-3 py-1.5" : isLg ? "gap-4 px-7 py-4" : "gap-3 px-4 py-2",
+        className,
+      )}
+    >
+      <Apple
+        className={cn("shrink-0 fill-foreground text-foreground transition group-hover:fill-primary", isSm ? "h-4 w-4" : isLg ? "h-9 w-9" : "h-5 w-5")}
+      />
+      <span className={cn("text-left leading-none", isSm && "hidden sm:block")}>
+        <span className={cn("block text-muted-foreground", isSm ? "text-[8px]" : isLg ? "text-sm" : "text-[9px]")}>Скачать в</span>
+        <span className={cn("block font-display font-semibold tracking-tight text-foreground", isSm ? "mt-1 text-xs" : isLg ? "mt-2 text-2xl" : "mt-1 text-sm")}>
+          App&nbsp;Store
+        </span>
+      </span>
     </a>
   );
 }
@@ -198,7 +231,10 @@ function Nav() {
           <a href="#features" className="hover:text-foreground">Возможности</a>
           <a href="#how" className="hover:text-foreground">Как это работает</a>
         </div>
-        <a href="#start" className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">Начать</a>
+        <div className="flex items-center gap-2">
+          <AppStoreBadge size="sm" />
+          <a href="#start" className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">Начать</a>
+        </div>
       </nav>
     </header>
   );
