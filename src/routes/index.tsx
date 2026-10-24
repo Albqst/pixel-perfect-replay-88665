@@ -72,7 +72,7 @@ function Index() {
           gsap.utils.toArray<HTMLElement>(".tilt").forEach((el) => {
             gsap.fromTo(
               el,
-              { rotate: Number(el.dataset.r ?? 4) },
+              { rotate: Number(el.dataset["r"] ?? 4) },
               { rotate: 0, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "center center", scrub: true } },
             );
           });
