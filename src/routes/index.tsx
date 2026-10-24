@@ -54,7 +54,7 @@ function Index() {
               pin: true,
             },
           });
-          tl.from(".hero-title", { scale: 0.85, opacity: 0.3, duration: 0.3 }, 0)
+          tl.from(".hero-title", { scale: 0.92, duration: 0.3 }, 0)
             .to(".hero-girl", { xPercent: desktop ? -45 : -20, yPercent: desktop ? 0 : -15, scale: 1.25, rotate: -4, duration: 1 }, 0)
             .to(".hero-guy", { xPercent: desktop ? 45 : 20, yPercent: desktop ? 0 : 15, scale: 1.25, rotate: 4, duration: 1 }, 0)
             .to(".hero-title", { scale: desktop ? 1.35 : 1.15, duration: 0.7 }, 0.3)
