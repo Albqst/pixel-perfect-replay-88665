@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, type ReactNode } from "react";
-import { Apple } from "lucide-react";
+import { AppStoreGlyph } from "@/components/app-store-glyph";
 import { cn } from "@/lib/utils";
 import girl from "@/assets/girl.png.asset.json";
 import guy from "@/assets/guy.png.asset.json";
@@ -208,8 +208,8 @@ function AppStoreBadge({ className, size = "md" }: { className?: string; size?: 
         className,
       )}
     >
-      <Apple
-        className={cn("shrink-0 fill-foreground text-foreground transition group-hover:fill-primary", isSm ? "h-4 w-4" : isLg ? "h-9 w-9" : "h-5 w-5")}
+      <AppStoreGlyph
+        className={cn("text-foreground transition group-hover:text-primary", isSm ? "h-4 w-4" : isLg ? "h-9 w-9" : "h-5 w-5")}
       />
       <span className={cn("text-left leading-none", isSm && "hidden sm:block")}>
         <span className={cn("block text-muted-foreground", isSm ? "text-[8px]" : isLg ? "text-sm" : "text-[9px]")}>Скачать в</span>
