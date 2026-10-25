@@ -7,7 +7,8 @@ describe("temporary chat session", () => {
     threads = appendChatMessage(threads, "second", "Второй разговор", "m2");
     threads = appendChatMessage(threads, "first", "Продолжение", "m3");
     expect(threads[0]?.messages.map((message) => message.parts)).toEqual([
-      [{ type: "text", text: "Первый разговор" }], [{ type: "text", text: "Продолжение" }],
+      [{ type: "text", text: "Первый разговор" }],
+      [{ type: "text", text: "Продолжение" }],
     ]);
     expect(threads[1]?.messages[0]?.parts).toEqual([{ type: "text", text: "Второй разговор" }]);
   });
