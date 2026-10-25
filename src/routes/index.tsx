@@ -1,4 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useEffect, useRef, type ReactNode } from "react";
 import { AppStoreGlyph } from "@/components/app-store-glyph";
 import { cn } from "@/lib/utils";
@@ -18,6 +20,8 @@ export const Route = createFileRoute("/")({
           "Riadom помогает лучше понимать себя, разбираться в чувствах и находить собственные ответы.",
       },
       { property: "og:title", content: "Riadom — ИИ-психолог рядом с тобой" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:description",
         content: "Говори о важном, узнавай себя глубже и возвращайся к своим мыслям.",
@@ -104,9 +108,10 @@ function Index() {
             <p className="mx-auto mt-6 max-w-md text-base text-muted-foreground md:text-lg">
               Лучше понимай себя. Разбирайся в своих чувствах. Находи собственные ответы.
             </p>
-            <a href="#about" className="mt-8 inline-flex rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition hover:scale-[1.03]">
-              Познакомиться с Riadom
-            </a>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Button asChild className="h-auto rounded-full bg-foreground px-7 py-3.5 font-semibold text-background hover:bg-foreground/90"><a href="#about">Познакомиться с Riadom</a></Button>
+              <Button asChild variant="outline" className="glass h-auto rounded-full px-6 py-3.5 font-semibold"><Link to="/chat"><MessageCircle />Чат</Link></Button>
+            </div>
           </div>
           <figure className="hero-guy mx-auto w-40 sm:w-52 md:w-full md:max-w-sm">
             <img src={guy.url} alt="Парень в кресле с блокнотом" className="aspect-square w-full rounded-[2rem] object-cover glow-violet" />
