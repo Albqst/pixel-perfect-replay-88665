@@ -13,13 +13,13 @@ import sun from "@/assets/sun.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Riadom — ИИ-психолог для поддержки и самопознания" },
+      { title: "Riadom — ИИ-компаньон для поддержки и самопознания" },
       {
         name: "description",
         content:
           "Riadom помогает лучше понимать себя, разбираться в чувствах и находить собственные ответы.",
       },
-      { property: "og:title", content: "Riadom — ИИ-психолог рядом с тобой" },
+      { property: "og:title", content: "Riadom — ИИ-компаньон рядом с тобой" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       {
