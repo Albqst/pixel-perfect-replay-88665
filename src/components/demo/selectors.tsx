@@ -23,7 +23,7 @@ function Carousel({ count, initial, onSelect, children }: { count: number; initi
   </div>;
 }
 
-export function OnboardingCharacter({ selected, onSelect, onContinue, onBack }: { selected: number; onSelect: (index: number) => void; onContinue: () => void; onBack?: () => void }) {
+export function OnboardingCharacter({ selected, onSelect, onContinue, onBack }: { selected: number; onSelect: (index: number) => void; onContinue: () => void; onBack?: (() => void) | undefined }) {
   return <section className="demo-onboarding demo-enter">
     <div className="demo-step"><Button variant="ghost" size="icon-sm" disabled={!onBack} onClick={onBack} aria-label="Назад"><ArrowLeft/></Button><span>ТВОЙ СПУТНИК</span><span>01 / 02</span></div>
     <h2>Выбери того,<br/>кто будет рядом</h2><p className="demo-subtitle">Твой спутник для мыслей, идей и маленьких шагов вперёд.</p>
