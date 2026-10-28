@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, type ReactNode } from "react";
 import { AppStoreGlyph } from "@/components/app-store-glyph";
@@ -111,6 +111,7 @@ function Index() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button asChild className="h-auto rounded-full bg-foreground px-7 py-3.5 font-semibold text-background hover:bg-foreground/90"><a href="#about">Познакомиться с Riadom</a></Button>
               <Button asChild variant="outline" className="glass h-auto rounded-full px-6 py-3.5 font-semibold"><Link to="/chat"><MessageCircle />Чат</Link></Button>
+               <Button asChild variant="outline" className="glass h-auto rounded-full px-6 py-3.5 font-semibold"><Link to="/demo"><Smartphone />Попробовать приложение</Link></Button>
             </div>
           </div>
           <figure className="hero-guy mx-auto w-40 sm:w-52 md:w-full md:max-w-sm">
