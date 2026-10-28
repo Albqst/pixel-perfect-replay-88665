@@ -17,7 +17,7 @@ function Carousel({ count, initial, onSelect, children }: { count: number; initi
     <div className="overflow-hidden" ref={ref}><div className="flex touch-pan-y">{children}</div></div>
     <div className="mt-4 flex items-center justify-center gap-5">
       <Button variant="ghost" size="icon-sm" onClick={() => api?.scrollPrev()} aria-label="Предыдущий вариант" title="Предыдущий вариант"><ChevronLeft/></Button>
-      <div className="flex gap-2">{Array.from({ length: count }, (_, i) => <Button key={i} variant="ghost" className={`demo-dot ${index === i ? 'is-selected' : ''}`} onClick={() => api?.scrollTo(i)} aria-label={`Вариант ${i + 1}`} aria-pressed={index === i}/>)}</div>
+      {count > 5 ? <span className="text-xs text-muted-foreground tabular-nums" aria-live="polite">{index + 1} / {count}</span> : <div className="flex gap-2">{Array.from({ length: count }, (_, i) => <Button key={i} variant="ghost" className={`demo-dot ${index === i ? 'is-selected' : ''}`} onClick={() => api?.scrollTo(i)} aria-label={`Вариант ${i + 1}`} aria-pressed={index === i}/>)}</div>}
       <Button variant="ghost" size="icon-sm" onClick={() => api?.scrollNext()} aria-label="Следующий вариант" title="Следующий вариант"><ChevronRight/></Button>
     </div>
   </div>;
@@ -29,7 +29,7 @@ export function OnboardingCharacter({ selected, onSelect, onContinue, onBack }: 
     <h2>Выбери того,<br/>кто будет рядом</h2><p className="demo-subtitle">Твой спутник для мыслей, идей и маленьких шагов вперёд.</p>
     <Carousel count={characters.length} initial={selected} onSelect={onSelect}>
       {characters.map((character, i) => <div className="demo-slide" key={character.name}>
-        <figure className={`character-portrait ${selected === i ? 'is-selected' : ''}`}><img src={character.image} alt={character.name}/><span className="character-check"><Check size={14}/></span></figure>
+        <figure className={`character-portrait ${selected === i ? 'is-selected' : ''}`}><img src={character.image} alt={character.name} className={character.uploaded ? 'object-contain!' : ''}/><span className="character-check"><Check size={14}/></span></figure>
         <h3>{character.name}</h3><p className="demo-trait">{character.trait}</p><p className="demo-character-description">{character.description}</p>
       </div>)}
     </Carousel>

@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { themes, demoReply, toggleDemoTask } from '@/lib/demo-state';
+import { characters, themes, demoReply, toggleDemoTask } from '@/lib/demo-state';
 
 describe('public demo behavior', () => {
+  it('includes all ten supplied companions on the first stage', () => {
+    expect(characters.slice(0, 10).map(character => character.name)).toEqual(['Вспышка', 'Глубина', 'Кубик', 'Лея', 'Проводник', 'Пуша', 'Скай', 'Спокойствие', 'Страж', 'Тихон']);
+    expect(new Set(characters.slice(0, 10).map(character => character.image)).size).toBe(10);
+  });
   it('offers all five requested themes', () => {
     expect(themes.map(t => t.id)).toEqual(['light', 'blue', 'lavender', 'mint', 'dark']);
   });
